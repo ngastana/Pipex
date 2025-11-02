@@ -37,6 +37,6 @@ This is equivalent to:
 You’ll mostly be living off the land with: open, close, read, write pipe, dup, dup2 fork, execve wait, waitpid access, perror, strerror malloc, free 
 
 💥 Error Handling 
-  If a file doesn’t exist → print an error and exit gracefully. 
+  If a file doesn’t exist → print an error and exit gracefully.
   If a command is invalid → print “command not found”. 
   Everything must be free (without leaks).
