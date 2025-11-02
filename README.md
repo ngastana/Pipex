@@ -14,7 +14,7 @@ You’ll be building a program that mimics this:
 ```
 and you’ll make it work like this: 
 ```bash
-    ./pipex infile cmd1 cmd2 outfile
+./pipex infile cmd1 cmd2 outfile
 ```
 The program should: 
     Open infile for reading. 
@@ -26,11 +26,11 @@ So it’s basically a mini version of how the shell handles redirections and pip
 🧰 Example Compilation make This will produce the executable pipex. 
 Run example:
 ```bash
-  ./pipex infile "grep something" "wc -l" outfile
+./pipex infile "grep something" "wc -l" outfile
 ```
 This is equivalent to:
 ```bash
-  < infile grep something | wc -l > outfile
+< infile grep something | wc -l > outfile
 ```
 
 ⚙️ Allowed Functions 
