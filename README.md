@@ -1,37 +1,26 @@
-🧩 Pipex
-Pipex es un proyecto de 42 que recrea el comportamiento del mítico pipe de Unix (|) — ese símbolo mágico que permite encadenar comandos como si fueran una sola sinfonía de procesos 🎶.
-En pocas palabras: tu programa toma la salida de un comando y la usa como entrada del siguiente, exactamente como lo hace la shell.
-🧠 Project Overview
-Vas a construir un programa que imite este comando del shell:
-$ < infile cmd1 | cmd2 > outfile
-Pero lo harás funcionar así:
-$ ./pipex infile cmd1 cmd2 outfile
-Tu programa debe:
-📂 Abrir infile para lectura.
-⚙️ Ejecutar cmd1 usando infile como entrada.
-🔗 Conectar la salida de cmd1 a la entrada de cmd2 mediante un pipe.
-💾 Redirigir la salida de cmd2 hacia outfile.
-En resumen: un mini shell que maneja redirecciones y pipes...
-✨ pero sin la ayuda de autocompletado, ni los bonitos mensajes de error del bash 😅
-🧰 Example
-🏗️ Compilación
-make
-Esto generará el ejecutable pipex.
-🚀 Ejemplo de ejecución
-./pipex infile "grep something" "wc -l" outfile
-Equivalente a:
-< infile grep something | wc -l > outfile
-⚙️ Allowed Functions
-Durante el viaje solo podrás usar las siguientes joyas del sistema 🛠️:
-open, close, read, write
-pipe, dup, dup2
-fork, execve
-wait, waitpid
-access, perror, strerror
-malloc, free
-Nada de atajos como system()… ¡esto es 42! 🧱
-💥 Error Handling
-Tu programa debe saber comportarse incluso cuando todo sale mal 💣:
-❌ Si el archivo no existe → mostrar un error y salir con gracia.
-⚠️ Si el comando no es válido → imprimir command not found.
-🧼 Y por supuesto: sin fugas de memoria (ni una sola).
+🧩 Pipex proyect recreates the behavior of the Unix pipe (|) — that magical little symbol that lets you chain commands together. In other words, the program takes the output of one command and feeds it as input to another, just like the shell does. 
+
+🧠 Project Overview It’ll be building a program that mimics this: 
+    $ < infile cmd1 | cmd2 > outfile 
+and you’ll make it work like this: 
+    $ ./pipex infile cmd1 cmd2 outfile 
+The program should: 
+    Open infile for reading. 
+    Execute cmd1 with infile as its input. 
+    Pipe the output of cmd1 into cmd2. 
+    Redirect the output of cmd2 into outfile. 
+So it’s basically a mini version of how the shell handles redirections and pipes — minus all the nice error messages and tab completion. 
+
+🧰 Example Compilation make This will produce the executable pipex. 
+Run example:
+  ./pipex infile "grep something" "wc -l" outfile 
+This is equivalent to: 
+  < infile grep something | wc -l > outfile 
+
+⚙️ Allowed Functions 
+You’ll mostly be living off the land with: open, close, read, write pipe, dup, dup2 fork, execve wait, waitpid access, perror, strerror malloc, free 
+
+💥 Error Handling 
+  If a file doesn’t exist → print an error and exit gracefully. 
+  If a command is invalid → print “command not found”. 
+  Everything must be free (without leaks).
